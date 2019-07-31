@@ -22,7 +22,7 @@
 	    $.ajax({
   type: "POST",
   url: "https://bots.ikigai.art/api/bot/action/r0MdK1Txs/DbDICSDTBgDkBVoD3BVB1CTBUwCCCKlCFEBSCRgCrBaBXUWCUFuB0BVBYCNyUCqX",
-  data: { description: "Оплата документов ИЖС", amount: "999" }
+  data: { description: "Оплата документов ИЖС", amount: "999", currency: "RUB", invoiceId: "1234567", accountId: "{{this_user.platform_id}}", }
 }).done(function( msg ) {
   });
          
