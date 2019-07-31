@@ -2,12 +2,15 @@
 <html>
  <head>
  
-	<script src="jquery-3.4.1.min.js"></script>
-	<script src="script.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://widget.cloudpayments.ru/bundles/cloudpayments"></script>
-	
+	<script src="script.js"></script>
  </head>
+ 
  <body>
-<button id="checkout">Оплата</button>
+
+<button id="checkout" onclick="$('#checkout').click(pay)">Оплатить</button>
+
  </body>
+ 
 </html>
