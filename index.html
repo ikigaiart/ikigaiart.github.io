@@ -19,6 +19,12 @@
             }
         },
         function (options) { 
+	    $.ajax({
+  type: "POST",
+  url: "https://bots.ikigai.art/api/bot/action/r0MdK1Txs/DbDICSDTBgDkBVoD3BVB1CTBUwCCCKlCFEBSCRgCrBaBXUWCUFuB0BVBYCNyUCqX",
+  data: { description: "Оплата документов ИЖС", amount: "999" }
+}).done(function( msg ) {
+  });
          
         },
         function (reason, options) { // fail
