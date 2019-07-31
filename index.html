@@ -4,17 +4,31 @@
 	<script src="jquery-3.4.1.min.js"></script>
 	<script src="https://widget.cloudpayments.ru/bundles/cloudpayments"></script>
 	 <script src="script.js"></script>
-		<script>
-	$(document).ready(function() {
-		$('#checkout').click(pay);
-});
+	 <script>
+		 this.pay = function () {
+    var widget = new cp.CloudPayments({language: "ru-RU"});
+    widget.charge({ // options
+            publicId: 'pk_729c20998d6b0571e963833bd1660',
+            description: 'Оплата документов ИЖС', //назначение
+            amount: 999, //сумма
+            currency: 'RUB', //валюта
+			invoiceId: '123456',
+			accountId: 'user@example.com',
+            skin: "mini", //дизайн виджета
+            data: {
+                myProp: 'myProp value' //произвольный набор параметров
+            }
+        },
+        function (options) { // success
+            //действие при успешной оплате
+        },
+        function (reason, options) { // fail
+            //действие при неуспешной оплате
+        });
 	 </script>
-	 
- </head>
+</head>
  
- <body>
-
-<button id="checkout">Оплатить</button>
- </body>
+<body onload="pay()">
+</body>
  
 </html>
