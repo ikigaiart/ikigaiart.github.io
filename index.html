@@ -5,7 +5,7 @@
     <script>
         this.pay = function () {
         var urlParams = new URLSearchParams(window.location.search);
-        var name = urlParams.get('name');
+        var name = decodeURI(urlParams.get('name'));
         var price = urlParams.get('price');
         var platform = urlParams.get('platform');
         var id = urlParams.get('id');
