@@ -1,15 +1,19 @@
 <html>
  <head>
- 
 	<script src="jquery-3.4.1.min.js"></script>
 	<script src="https://widget.cloudpayments.ru/bundles/cloudpayments"></script>
-	 <script>
-		 this.pay = function () {
-    var widget = new cp.CloudPayments({language:"ru-RU"});
-    widget.charge({ // options
+    <script>
+        this.pay = function () {
+        var urlParams = new URLSearchParams(window.location.search);
+        var name = urlParams.get('name');
+        var price = urlParams.get('price');
+        var platform = urlParams.get('platform');
+        var id = urlParams.get('id');
+        var widget = new cp.CloudPayments({language:"ru-RU"});
+        widget.charge({ // options
             publicId: 'pk_729c20998d6b0571e963833bd1660',  //id из личного кабинета
-            description: 'Оплата документов ИЖС', //назначение
-            amount: 999, //сумма
+            description: name, //назначение
+            amount: price, //сумма
             currency: 'RUB', //валюта
             invoiceId: '1234567', //номер заказа  (необязательно)
             accountId: 'user@example.com', //идентификатор плательщика (необязательно)
@@ -19,16 +23,17 @@
             }
         },
         function (options) { 
-	    $.ajax({
-  type: "POST",
-  url: "https://bots.ikigai.art/api/bot/action/r0MdK1Txs/DbDICSDTBgDkBVoD3BVB1CTBUwCCCKlCFEBSCRgCrBaBXUWCUFuB0BVBYCNyUCqX", 
-data: {
-	"platform": "tg",
-	"users": "122612664",
-}
-}).done(function( msg ) {
-  });
-         
+            
+            $.ajax({
+                type: "POST",
+                url: "https://bots.ikigai.art/api/bot/action/r0MdK1Txs/DbDICSDTBgDkBVoD3BVB1CTBUwCCCKlCFEBSCRgCrBaBXUWCUFuB0BVBYCNyUCqX", 
+                data: {
+                    "platform": platform,
+                    "users": id,
+                }
+            }).done(function( msg ) {
+                alert('Успешно оплачено!');
+            }); 
         },
         function (reason, options) { // fail
             //действие при неуспешной оплате
