@@ -13,7 +13,7 @@
         widget.charge({ // options
             publicId: 'pk_729c20998d6b0571e963833bd1660',  //id из личного кабинета
             description: name, //назначение
-            amount: price, //сумма
+            amount: parseInt(price), //сумма
             currency: 'RUB', //валюта
             invoiceId: '1234567', //номер заказа  (необязательно)
             accountId: 'user@example.com', //идентификатор плательщика (необязательно)
