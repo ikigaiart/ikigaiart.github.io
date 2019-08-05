@@ -9,6 +9,7 @@
         var price = urlParams.get('price');
         var platform = urlParams.get('platform');
         var id = urlParams.get('id');
+        var hook = urlParams.get('hook');
         var widget = new cp.CloudPayments({language:"ru-RU"});
         widget.charge({ // options
             publicId: 'pk_729c20998d6b0571e963833bd1660',  //id из личного кабинета
@@ -24,7 +25,7 @@
             
             $.ajax({
                 type: "POST",
-                url: "https://bots.ikigai.art/api/bot/action/r0MdK1Txs/DbDICSDTBgDkBVoD3BVB1CTBUwCCCKlCFEBSCRgCrBaBXUWCUFuB0BVBYCNyUCqX", 
+                url: hook, 
                 data: {
                     "platform": platform,
                     "users": id,
